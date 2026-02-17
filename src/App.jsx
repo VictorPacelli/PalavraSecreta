@@ -2,13 +2,16 @@ import { useState } from 'react'
 import './App.css'
 import Home from './components/Home.jsx'
 import Game from './components/Game.jsx'
+import GameOver from './components/GameOver.jsx'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [stage, setStage] = useState('Home')
+  
   return (
     <>
-     <Game />
+    {(stage == 'Home')&& <Home setStage={setStage}/>}
+    {(stage == 'Game')&&<Game setStage={setStage}/>}
+    {(stage == 'GameOver')&&<GameOver setStage={setStage}/>}
     </>
   )
 }
